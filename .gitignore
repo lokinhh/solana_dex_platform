@@ -1,0 +1,14 @@
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+frontend/.next/
+backend/.env
+.env
+.env.local
+.DS_Store
+*.log
+demo/logs/*
+!demo/logs/.gitkeep
+backend/data/
+programs/target/
+programs/trade-registry/target/
