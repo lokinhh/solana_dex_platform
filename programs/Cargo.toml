@@ -1,0 +1,47 @@
+[workspace]
+members = [
+    "crates/dex-core",
+    "crates/dex-cli",
+    "crates/dex-solana",
+    "crates/jupiter-client",
+    "crates/pumpfun-client",
+    "crates/sentiment-core",
+    "crates/onchain-indexer",
+    "crates/copy-engine",
+    "crates/dex-worker",
+    "crates/dex-api",
+    "trade-registry",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.3.0"
+edition = "2021"
+license = "MIT"
+authors = ["Loc Nguyen Huu"]
+
+[workspace.dependencies]
+anyhow = "1.0"
+async-trait = "0.1"
+borsh = "1.5"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+clap = { version = "4.5", features = ["derive", "env"] }
+copy-engine = { path = "crates/copy-engine" }
+dex-core = { path = "crates/dex-core" }
+dex-solana = { path = "crates/dex-solana" }
+jupiter-client = { path = "crates/jupiter-client" }
+onchain-indexer = { path = "crates/onchain-indexer" }
+pumpfun-client = { path = "crates/pumpfun-client" }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+sentiment-core = { path = "crates/sentiment-core" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+solana-program = "2.1"
+solana-program-test = "2.1"
+solana-rpc-client = "2.1"
+solana-rpc-client-api = "2.1"
+solana-sdk = "2.1"
+thiserror = "2.0"
+tokio = { version = "1.40", features = ["macros", "rt-multi-thread", "signal", "time"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }

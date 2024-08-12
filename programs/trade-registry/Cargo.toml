@@ -1,0 +1,19 @@
+[package]
+name = "trade-registry"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "On-chain trade intent registry for copy-trade audit trail (Solana program)"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+borsh = { workspace = true }
+dex-core = { workspace = true }
+solana-program = { workspace = true }
+
+[dev-dependencies]
+solana-program-test = { workspace = true }
+solana-sdk = { workspace = true }
