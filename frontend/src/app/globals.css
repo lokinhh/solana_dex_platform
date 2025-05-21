@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  @apply bg-void text-zinc-100 antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(153, 69, 255, 0.18), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(0, 255, 213, 0.08), transparent);
+  min-height: 100vh;
+}
+
+.card {
+  @apply rounded-xl border border-edge bg-panel/80 backdrop-blur-sm;
+}
+
+.btn-primary {
+  @apply rounded-lg bg-gradient-to-r from-sol to-violet-600 px-4 py-2 font-semibold text-white transition hover:opacity-90 disabled:opacity-40;
+}
+
+.btn-mint {
+  @apply rounded-lg border border-mint/40 bg-mint/10 px-4 py-2 font-semibold text-mint transition hover:bg-mint/20;
+}
+
+.score-bar {
+  @apply h-1.5 rounded-full bg-edge overflow-hidden;
+}
+
+.score-fill {
+  @apply h-full rounded-full bg-gradient-to-r from-sol to-mint transition-all duration-500;
+}
