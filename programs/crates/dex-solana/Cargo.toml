@@ -1,0 +1,23 @@
+[package]
+name = "dex-solana"
+description = "Solana RPC helpers, paper trading simulation, and transaction utilities"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+async-trait = { workspace = true }
+base64 = "0.22"
+bincode = "1.3"
+chrono = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+solana-rpc-client = { workspace = true }
+solana-rpc-client-api = { workspace = true }
+solana-sdk = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true }

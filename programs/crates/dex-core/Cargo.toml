@@ -1,0 +1,14 @@
+[package]
+name = "dex-core"
+description = "Shared Solana trade-registry types, account layouts, and instruction codecs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+borsh = { workspace = true }
+solana-program = { workspace = true }
+
+[dev-dependencies]
+solana-sdk = { workspace = true }
