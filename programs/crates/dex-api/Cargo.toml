@@ -1,0 +1,28 @@
+[package]
+name = "dex-api"
+description = "Lightweight Axum HTTP API for Rust-native sentiment and registry endpoints"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "dex-api"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+chrono = { workspace = true }
+axum = "0.7"
+copy-engine = { workspace = true }
+dex-core = { workspace = true }
+dex-solana = { workspace = true }
+onchain-indexer = { workspace = true }
+pumpfun-client = { workspace = true }
+sentiment-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

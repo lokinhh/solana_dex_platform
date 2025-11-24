@@ -1,0 +1,18 @@
+[package]
+name = "dex-cli"
+description = "CLI helpers to encode trade-registry instructions for devnet testing"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "dex-cli"
+path = "src/main.rs"
+
+[dependencies]
+borsh = { workspace = true }
+clap = { version = "4.5", features = ["derive"] }
+dex-core = { workspace = true }
+hex = "0.4"
+solana-sdk = { workspace = true }
