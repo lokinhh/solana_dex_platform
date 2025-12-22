@@ -1,0 +1,49 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: api
+    ports:
+      - "8091:8091"
+    environment:
+      NODE_ENV: production
+      PORT: 8091
+      MONGODB_URI: mongodb://mongo:27017/solana_dex
+      USE_MEMORY_DB: "false"
+      PAPER_TRADING: ${PAPER_TRADING:-true}
+      API_SECRET: ${API_SECRET:?set API_SECRET}
+      CORS_ORIGIN: http://localhost:3000
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8091/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: web
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8091
+      NEXT_PUBLIC_API_SECRET: ${API_SECRET}
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
