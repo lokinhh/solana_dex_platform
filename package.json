@@ -1,1 +1,21 @@
-{"name":"solana-dex-platform","version":"0.1.0","private":true,"description":"SolDex — Solana DEX","license":"MIT"}
+{
+  "name": "solana-dex-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Solana DEX trading platform with Pump.fun, copy trade, auto trade, and social sentiment",
+  "author": "Loc Nguyen Huu",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm --prefix backend run dev",
+    "dev:web": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "test": "node --test tests/*.test.js",
+    "e2e": "node simulator/e2e.js",
+    "docker:up": "docker compose up -d --build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
